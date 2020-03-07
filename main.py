@@ -12,7 +12,7 @@ def getData():
 
 rawResponse = getData()
 conf_dict = decodeToConfDict(rawResponse)
-Thread_pool = [ResolveThread(conf["add"]) for conf in conf_dict]
+Thread_pool = [ResolveThread(conf["add"], argv[2]) for conf in conf_dict]
 [thread.start() for thread in Thread_pool]
 [thread.join() for thread in Thread_pool]
 for index, thread in enumerate(Thread_pool):
